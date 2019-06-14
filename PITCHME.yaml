@@ -11,6 +11,8 @@ highlight : Vs
 
 
 code-line-numbers : true
+
+remote-control : true
 #
 # Theme-Override Setting
 # Doc: https://gitpitch.com/docs/settings/custom-theme
