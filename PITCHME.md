@@ -1,52 +1,68 @@
 # Let's Get Started
 
----
+```cpp
+// Program to depict user defined exception handling 
 
-## Add Some Slide Candy
+#include <iostream> 
+#include <stdexcept> 
+// For using runtime_error 
 
-![](assets/img/presentation.png)
+using namespace std; 
 
----?color=linear-gradient(180deg, white 75%, black 25%)
-@title[Customize Slide Layout]
+// User defined class for handling exception 
+// Class Exception publicly inherits 
+// the runtime_error class 
 
-@snap[west span-50]
-## Customize the Layout
-@snapend
+class Exception : public runtime_error { 
+public: 
+	// Defining constructor of class Exception 
+	// that passes a string message to the runtime_error class 
+	Exception() 
+		: runtime_error("Math error: Attempted to divide by Zero\n") 
+	{ 
+	} 
+}; 
 
-@snap[east span-50]
-![](assets/img/presentation.png)
-@snapend
+// defining Division function 
+float Division(float num, float den) 
+{ 
 
-@snap[south span-100 text-white]
-Snap Layouts let you create custom slide designs directly within your markdown.
-@snapend
+	// If denominator is Zero 
+	// throw user defined exception of type Exception 
+	if (den == 0) 
+		throw Exception(); 
+	
 
----?color=linear-gradient(90deg, #E27924 65%, white 35%)
-@title[Add A Little Imagination]
+	// otherwise return the result of division 
+	return (num / den); 
 
-@snap[north-west h4-white]
-#### And start presenting...
-@snapend
+} // end Division 
 
-@snap[west span-55]
-@ul[spaced text-white]
-- You will be amazed
-- What you can achieve
-- *With a little imagination...*
-- And **GitPitch Markdown**
-@ulend
-@snapend
+int main() 
+{ 
+	float numerator, denominator, result; 
+	numerator = 12.5; 
+	denominator = 0; 
 
-@snap[east span-45]
-@img[shadow](assets/img/conference.png)
-@snapend
+	// try block calls the Division function 
+	try { 
+		result = Division(numerator, denominator); 
 
----?image=assets/img/presenter.jpg
+		// this will not print in this example 
+		cout << "The quotient is " << result << endl; 
+	} 
 
-@snap[north span-100 h2-white]
-## Now It's Your Turn
-@snapend
+	// catch block catches exception if any 
+	// of type Exception 
+	catch (Exception& e) { 
 
-@snap[south span-100 text-06]
-[Click here to jump straight into the interactive feature guides in the GitPitch Docs @fa[external-link]](https://gitpitch.com/docs/getting-started/tutorial/)
-@snapend
+		// prints that exception has occurred 
+		// calls the what function using object of 
+		// the user defined class called Exception 
+		cout << "Exception occurred" << endl 
+			<< e.what(); 
+	} 
+
+} // end main 
+
+```
