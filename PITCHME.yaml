@@ -8,6 +8,9 @@
 theme : template
 
 highlight : Vs
+
+
+code-line-numbers : true
 #
 # Theme-Override Setting
 # Doc: https://gitpitch.com/docs/settings/custom-theme
