@@ -13,6 +13,8 @@ highlight : Vs
 code-line-numbers : true
 
 remote-control : true
+remote-control-prevkey: +1
+remote-control-nextkey: -1
 #
 # Theme-Override Setting
 # Doc: https://gitpitch.com/docs/settings/custom-theme
