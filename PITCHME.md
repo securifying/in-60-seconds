@@ -1,72 +1,41 @@
-# Let's Get Started
+# All about the Explicit Keyword
 ---
 ```c++
-// Program to depict user defined exception handling 
-
 #include <iostream> 
-#include <stdexcept> 
-// For using runtime_error 
 
 using namespace std; 
 
-// User defined class for handling exception 
-// Class Exception publicly inherits 
-// the runtime_error class 
+class Complex 
+{ 
+private: 
+	double real; 
+	double imag; 
 
-class Exception : public runtime_error { 
 public: 
-	// Defining constructor of class Exception 
-	// that passes a string message to the runtime_error class 
-	Exception() 
-		: runtime_error("Math error: Attempted to divide by Zero\n") 
-	{ 
+	// Default constructor 
+	Complex(double r = 0.0, double i = 0.0) : real(r), imag(i) {} 
+
+	// A method to compare two Complex numbers 
+	bool operator == (Complex rhs) { 
+	return (real == rhs.real && imag == rhs.imag)? true : false; 
 	} 
 }; 
 
-// defining Division function 
-float Division(float num, float den) 
-{ 
-
-	// If denominator is Zero 
-	// throw user defined exception of type Exception 
-	if (den == 0) 
-		throw Exception(); 
-	
-
-	// otherwise return the result of division 
-	return (num / den); 
-
-} // end Division 
-
 int main() 
 { 
-	float numerator, denominator, result; 
-	numerator = 12.5; 
-	denominator = 0; 
+	// a Complex object 
+	Complex com1(3.0, 0.0); 
 
-	// try block calls the Division function 
-	try { 
-		result = Division(numerator, denominator); 
-
-		// this will not print in this example 
-		cout << "The quotient is " << result << endl; 
-	} 
-
-	// catch block catches exception if any 
-	// of type Exception 
-	catch (Exception& e) { 
-
-		// prints that exception has occurred 
-		// calls the what function using object of 
-		// the user defined class called Exception 
-		cout << "Exception occurred" << endl 
-			<< e.what(); 
-	} 
-
-} // end main 
+	if (com1 == 3.0) 
+	cout << "Same"; 
+	else
+	cout << "Not Same"; 
+	return 0; 
+} 
+ 
 
 ```
-@[4] (Important include message)
-@[13] (Inheriting from runtime_error class)
-@[30] (Interesting..?)
+@[13] (What is this?)
+@[16-18] (Inheriting from runtime_error class)
+@[26] (Interesting..?)
 @[54] (See that parameter there?)
