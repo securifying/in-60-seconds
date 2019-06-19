@@ -37,5 +37,6 @@ int main()
 ```
 @[13] (What is this?)
 @[16-18] (Inheriting from runtime_error class)
+@[9-25] (Inheriting from runtime_error class)
 @[26] (Interesting..?)
 @[54] (See that parameter there?)
